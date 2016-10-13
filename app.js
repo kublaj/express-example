@@ -22,6 +22,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(require('forest-express-sequelize').init({
+  modelsDir: __dirname + '/models', // Your models directory.
+  secretKey: 'b3088bfcdc0adfaba0b6352704efae357e221e8dfe6555f35ad03450dc47b451',
+  authKey: '5M8LrJdm59^dF^qa', // Choose a secret authentication key.
+  sequelize: require('./models').sequelize // The sequelize database connection.
+}));
+
 app.use('/', routes);
 app.use('/users', users);
 

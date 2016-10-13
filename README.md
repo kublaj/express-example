@@ -1,3 +1,18 @@
+# Forest Admin
+
+This repository, forked from [https://github.com/sequelize/express-example][express-example], shows you how to install Forest on an Express/Sequelize project.
+
+Don't forget to change the `secretKey` in the app.js:
+
+```
+app.use(require('forest-express-sequelize').init({
+  modelsDir: __dirname + '/models', // Your models directory.
+  secretKey: 'SECRET_KEY_GIVEN_BY_FOREST',
+  authKey: '5M8LrJdm59^dF^qa', // Choose a secret authentication key.
+  sequelize: require('./models').sequelize // The sequelize database connection.
+}));
+```
+
 # Express Example
 
 This repository demonstrates the usage of Sequelize within an [Express](https://expressjs.com) application.
